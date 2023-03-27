@@ -1,0 +1,15 @@
+<h1>かねち頑張ろ！！</h1>
+<p>新規投稿</p>
+
+<%= form_for @sake do |f| %>
+  <div class = "field">
+    <%= f.label :カクテル %>
+    <%= f.text_field :cocktail, :size => 30 %>
+    <%= f.label :body %>
+    <%= f.text_field :body, :size => 30 %>
+    <%= f.label :画像 %>
+    <%= f.file_field :image %>
+    <%= f.submit "酒投稿" %>
+  </div>
+<% end %>
+<%= link_to "top", sakes_path %>

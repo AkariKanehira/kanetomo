@@ -1,0 +1,26 @@
+<h1>かねち頑張ろ</h1>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+<h2>ユーザーの投稿一覧</h2>
+<% @user.sakes.each do |t| %>
+  <%= t.cocktail %>
+  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+  <%= t.body %>
+  <%= t.user.name %>
+<% end %>
+
+<h2>ユーザーがいいねした投稿一覧</h2>
+<% @user.liked_sakes.each do |t| %>
+  <%= t.user.name %>
+  <%= t.cocktail %>
+  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+  <%= t.body %>
+<% end %>
+
+<%= link_to "Top", sakes_path %>

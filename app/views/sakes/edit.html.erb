@@ -1,0 +1,14 @@
+<h1>かねち頑張ろ！！</h1>
+<%= form_for @sake do |f| %>
+  <%= f.label :カクテル %>
+  <%= f.text_field :cocktail, :size => 30 %>
+  <%= f.label :body %>
+  <%= f.text_field :body, :size => 30 %>
+  <%= f.label :画像 %>
+  <%= f.file_field :image %>
+  <%= f.submit "酒編集" %>
+<% end %>
+<%= link_to "Top", sakes_path %>
+
+
+  

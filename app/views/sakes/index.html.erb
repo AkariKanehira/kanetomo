@@ -1,0 +1,36 @@
+<h1>かねち頑張ろ！！</h1>
+<p>一覧ページ</p>
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+<%= page_entries_info @sakes %>
+<div class = "sake-container" >
+  <% @sakes.each do |t| %>
+    <%= t.cocktail %>
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= t.body %>
+    <%= link_to t.user.name, user_path(t.user.id) %>
+    <%= t.user.email %>
+    <% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+        <%= link_to sake_like_path(id: t.id, sake_id: t.id), method: :delete do %>
+          <p>いいねを取り消す<%= t.likes.count %></p>
+        <% end %>
+      <% else %>
+        <%= link_to sake_likes_path(id: t.id, sake_id: t.id), method: :post do %>
+          <p>いいね<%= t.likes.count %></p>
+        <% end %>
+      <% end %>
+    <% else %>
+    <p>いいねの数 = </p><%= @sake.likes.count %>
+    <% end %>
+    <%= link_to "詳細へ", sake_path(t.id) %>
+    <% if user_signed_in? && current_user.id == t.user_id %>
+      <%= link_to "編集する", edit_sake_path(t.id) %>
+      <%= link_to "削除する", sake_path(t.id), method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<%= paginate @sakes %>
+<%= link_to "新規投稿", new_sake_path %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
