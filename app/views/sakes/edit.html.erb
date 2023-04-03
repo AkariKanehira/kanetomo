@@ -6,6 +6,10 @@
   <%= f.text_field :body, :size => 30 %>
   <%= f.label :画像 %>
   <%= f.file_field :image %>
+  <div class="field">
+    <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %>
+    <%= f.text_field :tag_name, value: @tag_list,class:"form-control"%>
+  </div>
   <%= f.submit "酒編集" %>
 <% end %>
 <%= link_to "Top", sakes_path %>

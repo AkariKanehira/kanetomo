@@ -1,9 +1,15 @@
 <h1>かねち頑張ろ！！</h1>
+<%= link_to "カクテル診断へ", perfumes_path %>
 <p>一覧ページ</p>
 <% if user_signed_in? %>
   <%= link_to "マイページへ", user_path(current_user.id) %>
 <% end %>
 <%= page_entries_info @sakes %>
+<h3>タグリスト</h3>
+<% @tag_list.each do |list| %>
+  #<%= link_to list.tag_name, tag_sakes_path(tag_id: list.id) %>
+  <%= "(#{list.sakes.count})" %>
+<% end %>
 <div class = "sake-container" >
   <% @sakes.each do |t| %>
     <%= t.cocktail %>
@@ -24,6 +30,8 @@
     <% else %>
     <p>いいねの数 = </p><%= @sake.likes.count %>
     <% end %>
+  
+
     <%= link_to "詳細へ", sake_path(t.id) %>
     <% if user_signed_in? && current_user.id == t.user_id %>
       <%= link_to "編集する", edit_sake_path(t.id) %>

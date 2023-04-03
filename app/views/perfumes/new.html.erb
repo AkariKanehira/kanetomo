@@ -1,0 +1,20 @@
+<%= form_for @perfume do |f| %>
+  <div class="question1">
+    <p>Question1.甘いものがすきですか、それとも辛いものが好きですか?</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>甘いものが好き</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>辛いものが好き</p>
+    <p><%= f.check_box :question, {multiple: true}, "3", nil %>酸っぱいのが好き</p>
+  </div>
+  <div class="question2">
+    <p>Question4.カクテルを飲む際に大切にしたい要素は何ですか?</p>
+    <p><%= f.check_box :question, {multiple: true}, "1", nil %>味のバランス</p>
+    <p><%= f.check_box :question, {multiple: true}, "2", nil %>見た目や盛り付け</p>
+    <p><%= f.check_box :question, {multiple: true}, "3", nil %>香りの良さ</p>
+  </div>
+  <div class = "sindanbotan">
+    <%= f.submit "post" %>
+  </div>
+<% end %>
+  
+
+    

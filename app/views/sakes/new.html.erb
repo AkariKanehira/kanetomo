@@ -9,7 +9,9 @@
     <%= f.text_field :body, :size => 30 %>
     <%= f.label :画像 %>
     <%= f.file_field :image %>
+    <%= f.text_field :tag_maps, placeholder: "Ruby Python Java" %>
     <%= f.submit "酒投稿" %>
+    
   </div>
 <% end %>
 <%= link_to "top", sakes_path %>

@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :sakes do
     resources :likes, only: [:create, :destroy]
   end
+  resources :perfumes
+  resources :tags do
+    get 'sakes', to: 'sakes#search'
+  end
   root "sakes#index"
 end
