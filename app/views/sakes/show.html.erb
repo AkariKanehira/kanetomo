@@ -7,6 +7,14 @@
   <p><%= image_tag @sake.image_url, size: "250x200" if @sake.image? %></p>
   <p>投稿者 <%= @sake.user.email %></p>
   <p><%= @sake.created_at %></p>
+
+  <% @sake_tags.each do |tag| %>
+    <% if tag.sakes.count > 0 %>
+      #<%= link_to tag.tag_name, tag_sakes_path(tag_id: tag.id) %>
+      <%= "(#{tag.sakes.count})" %>
+    <% end %>
+  <% end %>
+
   <% if user_signed_in? %>
     <% if current_user.already_liked?(@sake) %>
       <%= link_to sake_like_path(@sake), method: :delete do %>
@@ -21,9 +29,11 @@
     <p>いいねの数 = </p><%= @sake.likes.count %>
   <% end %>
 </div>
+
 <h2>いいねしたユーザー</h2>
 <% @sake.liked_users.each do |user| %>
   <li><%= user.email %></li>
 <% end %>
+
 <%= link_to "編集する", edit_sake_path(@sake.id) %>
 <%= link_to "top", sakes_path %>

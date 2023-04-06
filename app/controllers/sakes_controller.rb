@@ -1,5 +1,6 @@
 class SakesController < ApplicationController
   before_action :authenticate_user! 
+
   def index
     @sakes = Sake.all
     @sakes = @sakes.page(params[:page]).per(5)
@@ -8,27 +9,30 @@ class SakesController < ApplicationController
 
   def new
     @sake = Sake.new
+    @sake = current_user.sakes.new
   end
   
   def create
-    sake = Sake.new(sake_params)
-    sake.user_id = current_user.id
-    tag_list = params[:sake][:tag_name].split(nil)
-    if sake.save!
-      @sake.save_tag(tag_list)
-      redirect_to :action => "index"
+    @sake = current_user.sakes.new(sake_params)           
+    tag_list = params[:sake][:tag_name].split(nil)  
+    if @sake.save
+      @sake.save_tag(tag_list)                                                           
+      redirect_to sakes_path      
     else
-      redirect_to :action => "new"
+      redirect_to new_sake_path         
     end
   end
+
   def show
     @sake = Sake.find(params[:id])
     @sake_tags = @sake.tags
   end
+
   def edit
     @sake = Sake.find(params[:id])
     @tag_list=@sake.tags.pluck(:tag_name).join(nil)
   end
+
   def update
     sake = Sake.find(params[:id])
     tag_list = params[:sake][:tag_name].split(nil)
@@ -42,6 +46,7 @@ class SakesController < ApplicationController
       redirect_to :action => "new"
     end
   end
+
   def destroy
     sake = Sake.find(params[:id])
     sake.destroy
