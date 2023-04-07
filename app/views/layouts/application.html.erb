@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <header>
+      <h1>タイトル行方不明</h1>
+      <div class="header-list">
+        <a><%= link_to "toppage", sakes_path %></a>
+        <a><%= link_to "newpost", new_sake_path %></a>
+      </div>
+    </header>
+
     <%= yield %>
   </body>
 </html>

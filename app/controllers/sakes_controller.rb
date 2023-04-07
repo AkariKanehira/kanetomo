@@ -1,6 +1,9 @@
 class SakesController < ApplicationController
   before_action :authenticate_user! 
 
+  def top
+  end
+
   def index
     @sakes = Sake.all
     @sakes = @sakes.page(params[:page]).per(5)
@@ -41,9 +44,10 @@ class SakesController < ApplicationController
       old_relations.each do |relation|
         relation.delete
       end
-      redirect_to :action => "show", :id => sake.id
+      sake.save_tag(tag_list)
+      redirect_to sake_path(sake.id), notice:'投稿完了しました:)'
     else
-      redirect_to :action => "new"
+      redirect_to :action => "edit"
     end
   end
 
