@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  devise :omniauthable, omniauth_providers: %i[facebook twitter google_oauth2]
+
   has_many :sakes, dependent: :destroy
 
   validates :name, presence: true 
@@ -15,4 +17,12 @@ class User < ApplicationRecord
     self.likes.exists?(sake_id: sake.id)
   end
   
+<!-- SNS認証 -->
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
 end
