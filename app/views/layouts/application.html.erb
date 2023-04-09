@@ -12,11 +12,20 @@
 
   <body>
     <header>
-      <h1>頑張るぞ！</h1>
+      <h1>cocktail</h1>
+      <% if user_signed_in? %>
       <div class="header-list">
         <a><%= link_to "toppage", sakes_path %></a>
         <a><%= link_to "newpost", new_sake_path %></a>
+        <a><%= link_to "Diagnosis", perfumes_path %></a>
+        <a><%= link_to "mypage", user_path(current_user.id) %></a>
       </div>
+      <% else %>
+      <div class="header-list">
+        <a><%= link_to "ログイン", sakes_path %></a>
+        <a><%= link_to "新規登録", new_user_registration_path %></a>
+      </div>
+      <% end %>
     </header>
 
     <%= yield %>

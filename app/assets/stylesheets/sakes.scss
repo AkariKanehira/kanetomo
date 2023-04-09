@@ -15,3 +15,55 @@
     justify-content: center;
     align-items: center;
 }
+
+.sake-new-index {
+    margin-top: 100px;
+    text-align: center;
+}
+.toko-field {
+    margin:auto;
+}
+.sake-new-image{
+    background-image: url("top.jpg");
+    background-size: cover;
+}
+.sake-index {
+    padding-top: 70px;
+}
+.tag_list {
+    height:auto;
+    text-align: center;
+    border: 2px;
+    background-color: white;
+}
+.sake-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+  }
+  
+  .post-pair {
+    display: flex;
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+  }
+  
+  .post {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .post:not(:last-child) {
+    margin-right: 20px;
+  }
+  
+  .sake-content {
+    margin-bottom: 10px;
+  }

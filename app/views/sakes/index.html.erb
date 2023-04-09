@@ -1,55 +1,62 @@
 <div class = "boxmain">
 <div class = "haikei">
-  <h1>とも頑張ろ！！</h1>
-
-<%= link_to "カクテル診断へ", perfumes_path %>
-
-<%= link_to "新規投稿", new_sake_path %>
-
-<p>一覧ページ</p>
-
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% end %>
-
-<h3>タグリスト</h3>
-  <% @tag_list.each do |list| %>
-    #<%= link_to list.tag_name, tag_sakes_path(tag_id: list.id) %>
-    <%= "(#{list.sakes.count})" %>
-  <% end %>
-
+<div class = "sake-index">
+  <p>一覧ページ</p>
+</div>
+<div class = "tag_list">
+  <h3>タグリスト</h3>
+    <% @tag_list.each do |list| %>
+      #<%= link_to list.tag_name, tag_sakes_path(tag_id: list.id) %>
+      <%= "(#{list.sakes.count})" %>
+    <% end %>
+</div>
 <%= page_entries_info @sakes %>
   <div class = "sake-container" >
     <% @sakes.each do |t| %>
-      <%= t.cocktail %>
-      <%= image_tag t.image_url, size: "250x200" if t.image? %>
-      <%= t.body %>
-      <%= link_to t.user.name, user_path(t.user.id) %>
-      <%= t.user.email %>
-      #<%= link_to tag.tag_name, tag_sakes_path(tag_id: tag.id) %>
-
-      <% if user_signed_in? %>
-        <% if current_user.already_liked?(t) %>
-          <%= link_to sake_like_path(id: t.id, sake_id: t.id), method: :delete do %>
-            <p>いいねを取り消す<%= t.likes.count %></p>
+      <div class = "post">
+        <div class = "sake-content">
+          <%= t.cocktail %>
+        </div>
+        <div class= "sake-content">
+         <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        </div>
+        <div class= "sake-content">
+          <%= t.body %>
+        </div>
+        <div class= "sake-content">
+          <%= link_to t.user.name, user_path(t.user.id) %>
+        </div>
+        <div class="sake-content">
+          <%= t.user.email %>
+        </div>
+        <div class= "sake-content">
+          #<%= link_to tag.tag_name, tag_sakes_path(tag_id: tag.id) %>
+        </div>
+        <div class="sake-content">
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+            <%= link_to sake_like_path(id: t.id, sake_id: t.id), method: :delete do %>
+              <p>いいねを取り消す<%= t.likes.count %></p>
+            <% end %>
+          <% else %>
+            <%= link_to sake_likes_path(id: t.id, sake_id: t.id), method: :post do %>
+              <p>いいね<%= t.likes.count %></p>
+            <% end %>
           <% end %>
         <% else %>
-          <%= link_to sake_likes_path(id: t.id, sake_id: t.id), method: :post do %>
-            <p>いいね<%= t.likes.count %></p>
-          <% end %>
+          <p>いいねの数 = </p><%= @sake.likes.count %>
         <% end %>
-      <% else %>
-        <p>いいねの数 = </p><%= @sake.likes.count %>
-      <% end %>
-    
+        </div>
+      
+        <div class = "sake-content">
+          <%= link_to "詳細へ", sake_path(t.id) %>
 
-      <%= link_to "詳細へ", sake_path(t.id) %>
-
-      <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "編集する", edit_sake_path(t.id) %>
-        <%= link_to "削除する", sake_path(t.id), method: :delete %>
-      <% end %>
+          <% if user_signed_in? && current_user.id == t.user_id %>
+            <%= link_to "編集する", edit_sake_path(t.id) %>
+            <%= link_to "削除する", sake_path(t.id), method: :delete %>
+          <% end %>
+        </div>
+      <div>
     <% end %>
   </div>
 <%= paginate @sakes %>
