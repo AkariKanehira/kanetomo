@@ -17,7 +17,6 @@ class User < ApplicationRecord
     self.likes.exists?(sake_id: sake.id)
   end
   
-<!-- SNS認証 -->
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -26,3 +25,4 @@ class User < ApplicationRecord
   end
 
 end
+
