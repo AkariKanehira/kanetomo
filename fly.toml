@@ -1,0 +1,8 @@
+# fly.toml file generated for kanetomo on 2023-04-11T13:39:19+09:00
+
+app = "kanetomo"
+primary_region = "nrt"
+
+[[statics]]
+  guest_path = "/rails/public"
+  url_prefix = "/"

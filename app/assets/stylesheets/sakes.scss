@@ -10,23 +10,10 @@
 .haikei {
     background-image: url("sake.jpg");
     background-size: cover;
-    width: 100%;
     height: 2000px;
-    justify-content: center;
-    align-items: center;
 }
 
-.sake-new-index {
-    margin-top: 100px;
-    text-align: center;
-}
-.toko-field {
-    margin:auto;
-}
-.sake-new-image{
-    background-image: url("top.jpg");
-    background-size: cover;
-}
+
 .sake-index {
     padding-top: 70px;
 }
@@ -35,35 +22,58 @@
     text-align: center;
     border: 2px;
     background-color: white;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
 }
+.tag-list-block {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin: auto;
+}
+
+.sake-list-content a{
+    text-decoration: none;
+    color: black;
+} 
+
 .sake-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: white;
-  }
-  
-  .post-pair {
+    text-align: center;
     display: flex;
-    width: calc(50% - 10px);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sake-content{
+    max-width: 300px;
     margin-bottom: 20px;
-  }
-  
-  .post {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .post:not(:last-child) {
-    margin-right: 20px;
-  }
-  
-  .sake-content {
-    margin-bottom: 10px;
-  }
+}
+.sake-content a{
+    text-decoration: none;
+    color: black;
+}
+
+.sake-index-link a{
+    text-decoration: none;
+    color: black;
+}
+// 新規投稿ページ
+.sake-new-image{
+    background-image: url("top.jpg");
+    background-size: cover;
+    height: 800px;
+}
+.sake-new-index {
+    text-align: center;
+    padding-top: 100px;  
+}
+
+.toko-naiyo {
+    margin-bottom: 20px;
+}
+

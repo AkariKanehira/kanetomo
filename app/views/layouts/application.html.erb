@@ -17,8 +17,9 @@
       <div class="header-list">
         <a><%= link_to "toppage", sakes_path %></a>
         <a><%= link_to "newpost", new_sake_path %></a>
-        <a><%= link_to "Diagnosis", perfumes_path %></a>
+        <a><%= link_to "Diagnosis", new_perfume_path %></a>
         <a><%= link_to "mypage", user_path(current_user.id) %></a>
+        <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></a>
       </div>
       <% else %>
       <div class="header-list">

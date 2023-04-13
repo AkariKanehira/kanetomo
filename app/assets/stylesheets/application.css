@@ -51,7 +51,7 @@ header h1{
     font-size: 20px;
 }
 
-a{
+.header-list a{
     color: #3e3e3e;
     text-decoration: none;
     margin: 10px;

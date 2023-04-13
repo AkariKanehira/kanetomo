@@ -60,7 +60,9 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'kaminari'
 
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
+group :production do
+  gem 'pg'
+end
+gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "redis", "~> 5.0"
