@@ -338,7 +338,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest.exe -IC:/Ruby30-x64/include/ruby-3.0.0/x64-mingw32 -IC:/Ruby30-x64/include/ruby-3.0.0/ruby/backward -IC:/Ruby30-x64/include/ruby-3.0.0 -I. -IC:/Ruby30-x64/msys64/mingw64/bin/../include -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong -fstack-protector-strong -D_FORTIFY_SOURCE=2  conftest.c  -L. -LC:/Ruby30-x64/lib -L. -pipe -s -fstack-protector-strong -fstack-protector-strong -l:libssp.a -LC:/Ruby30-x64/msys64/mingw64/bin/../lib  -m64  -lssp  -lssl -lcrypto -lx64-msvcrt-ruby300 -lssp  -lssl -lcrypto -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-C:/Ruby30-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\AKARIK~1\AppData\Local\Temp\ccy01WeV.o:conftest.c:(.text+0x5): undefined reference to `SSL_get1_peer_certificate'
+C:/Ruby30-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\AKARIK~1\AppData\Local\Temp\cc85pPUk.o:conftest.c:(.text+0x5): undefined reference to `SSL_get1_peer_certificate'
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */

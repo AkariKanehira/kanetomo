@@ -132,7 +132,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest.exe -IC:/Ruby30-x64/include/ruby-3.0.0/x64-mingw32 -IC:/Ruby30-x64/include/ruby-3.0.0/ruby/backward -IC:/Ruby30-x64/include/ruby-3.0.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby30-x64/lib -L. -pipe -s -fstack-protector-strong  -m64   -lx64-msvcrt-ruby300  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-C:/Ruby30-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\AKARIK~1\AppData\Local\Temp\ccKT9myj.o:conftest.c:(.text+0x5): undefined reference to `rb_hash_new_capa'
+C:/Ruby30-x64/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\AKARIK~1\AppData\Local\Temp\ccmRiUSJ.o:conftest.c:(.text+0x5): undefined reference to `rb_hash_new_capa'
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */

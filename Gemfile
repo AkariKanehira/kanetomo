@@ -6,7 +6,7 @@ ruby '3.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -60,7 +61,11 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'kaminari'
 
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
+gem "dockerfile-rails", ">= 1.2", :group => :development
+gem "redis", "~> 5.0"
+
+gem 'wdm', '>= 0.1.0'
+
+group :production do
+  gem 'pg'
+end
