@@ -1,0 +1,19 @@
+// Place all the styles related to the hello controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.toppage{
+  display: flex;
+  height: 710PX;
+}
+
+.topright{
+  background-image: url("topright.jpg");
+  background-size: cover;
+  width: 100%;
+}
+
+.topleft{
+  background-image: url("topleft.png");
+  background-size: cover;
+  width: 100%;
+}

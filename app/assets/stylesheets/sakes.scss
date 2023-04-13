@@ -10,8 +10,70 @@
 .haikei {
     background-image: url("sake.jpg");
     background-size: cover;
-    width: 100%;
     height: 2000px;
-    justify-content: center;
-    align-items: center;
 }
+
+
+.sake-index {
+    padding-top: 70px;
+}
+.tag_list {
+    height:auto;
+    text-align: center;
+    border: 2px;
+    background-color: white;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tag-list-block {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    margin: auto;
+}
+
+.sake-list-content a{
+    text-decoration: none;
+    color: black;
+} 
+
+.sake-container {
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.sake-content{
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.sake-content a{
+    text-decoration: none;
+    color: black;
+}
+
+.sake-index-link a{
+    text-decoration: none;
+    color: black;
+}
+// 新規投稿ページ
+.sake-new-image{
+    background-image: url("top.jpg");
+    background-size: cover;
+    height: 800px;
+}
+.sake-new-index {
+    text-align: center;
+    padding-top: 100px;  
+}
+
+.toko-naiyo {
+    margin-bottom: 20px;
+}
+

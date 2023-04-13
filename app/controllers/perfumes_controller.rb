@@ -1,6 +1,4 @@
 class PerfumesController < ApplicationController
-  def index
-  end
   def new
     @perfume = Perfume.new
   end

@@ -1,22 +1,26 @@
-<h1>かねち頑張ろ！！</h1>
-<p>新規投稿</p>
+<div class ="sake-new-image">
+<div class = "sake-new-index">
+<h3>新規投稿</h3>
 
 <%= form_with(model: @sake, url: sakes_path, local: true) do |f| %>  
-  <div class = "field">
-
-    <%= f.label :カクテル %>
-    <%= f.text_field :cocktail, :size => 30 %><br>
-
-    <%= f.label :body %>
-    <%= f.text_field :body, :size => 30 %><br>
-
-    <%= f.label :画像 %>
-    <%= f.file_field :image %><br>
-
-    <%= f.text_field :tag_name, placeholder: "ハッシュタグ" %><br>
-
+  <div class = "toko-field">
+    <div class = "toko-naiyo">
+      <%= f.label :カクテル %>
+      <%= f.text_field :cocktail, :size => 30 %><br>
+    </div>
+    <div class = "toko-naiyo">
+      <%= f.label :body %>
+      <%= f.text_field :body, :size => 30 %>
+    </div>
+    <div class = "toko-naiyo">
+      <%= f.label :画像 %>
+      <%= f.file_field :image %>
+    </div>
+    <div class = "toko-naiyo">
+      <%= f.text_field :tag_name, placeholder: "ハッシュタグ" %><br>
+    </div>
     <%= f.submit "酒投稿" %>
-    
   </div>
 <% end %>
-<%= link_to "top", sakes_path %>
+</div>
+</div>
